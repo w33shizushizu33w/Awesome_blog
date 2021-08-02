@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:session] = "Saved Successfully"
-      redirecy_to @user
+      redirect_to @user
     else
       flash[:danger] = "Invalid content. Try Again."
       render 'edit'
