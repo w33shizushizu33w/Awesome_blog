@@ -1,0 +1,19 @@
+<% provide(:title, 'Login') %>
+<div class="form content">
+   <h1 class="text-center">Login</h1>
+   <div class="container">
+       <%= form_for(:session, url: sessions_path) do |f| %>
+           <%= f.label :email %>
+           <%= f.text_field :email, class: "form-control" %>
+
+           <%= f.label :password %>
+           <%= f.password_field :password, class: "form-control" %>
+           <%= f.submit "Login", class: "btn btn-block btn-primary" %>
+       <% end %>
+            <p>New here? <%= link_to "Sign up now!", signup_path %></p>
+   </div>
+   <div>
+    <img class="d-block mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Z_5TdNiyRxJDugx0flAKWxMZ4PMjpuAfNw&usqp=CAU"
+         width="500" height="300">
+   </div>
+</div>

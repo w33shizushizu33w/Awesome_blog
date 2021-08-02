@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<div class="row d-flex justify-content-center mt-4">
+  <aside class="span col-3">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section>
+          <%= render 'shared/stats' %>
+    </section>
+    <div>
+      <img src="https://i.pinimg.com/236x/0a/e5/38/0ae53826e9bfa365e3eea16980bb92ea--sailor-moon-manga-sailor-moon-art.jpg" 
+           alt="..." class="img-thumbnail mt-5">
+    </div>
+  </aside>
+
+  <div class="col-6">
+      <%= render 'follow_form' if logged_in? %>
+      <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+        <ol>
+           <%= render @microposts %>
+        </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>
